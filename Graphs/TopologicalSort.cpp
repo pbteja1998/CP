@@ -3,16 +3,17 @@ using namespace std;
 
 class Graph
 {
-    class Node;    
-    int nNodes;
+    private:
+        class Node;    
+        int nNodes;
+        vector<Node> Nodes;
+        void DFS(int node, vector<bool> &Visited, stack<int> &SortedStack);
+        stack<int> getTopologicalSorting();
 
-    public:
-    vector<Node> Nodes;
-    Graph(int N);
-    void addEdge(int src, int dest);
-    void DFS(int node, vector<bool> &Visited, stack<int> &SortedStack);
-    stack<int> getTopologicalSorting();
-    void printTopologicallySortedStack();
+    public:    
+        Graph(int N);
+        void addEdge(int src, int dest);    
+        void printTopologicallySortedStack();
 };
 
 class Graph::Node
