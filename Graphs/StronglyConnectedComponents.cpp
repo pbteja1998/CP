@@ -6,13 +6,13 @@ class Graph
     private:
         class Node;    
         int nNodes;
+        vector<Node> Nodes;
         stack<int> SortAsPerFinishingTimes();
         void fillSortedStack(int node, vector<bool> &Visited, stack<int> &SortedStack);
         void DFS(int node, vector<bool> &Visited, vector<int> &Component);
         vector<vector<int>> getStronglyConnectedComponents(Graph G);
 
-    public:
-        vector<Node> Nodes;
+    public:        
         Graph(int N);
         void addEdge(int src, int dest);
         void printStronglyConnectedComponents(Graph G);
@@ -161,7 +161,8 @@ int main()
         3 4
       Output:
         0 1 2
-        3 4
+        3
+        4
     2. Input:
         8 14
         0 1
