@@ -99,3 +99,12 @@ int main()
 
     return 0;
 }
+
+/**
+    Algo:
+        During DFS, the node with higher finishing time is more to the left and vice-versa
+        Finishing time of a node N is time taken to finish visiting all the children of N;
+
+    Complexity:
+        O(V+E)
+**/
