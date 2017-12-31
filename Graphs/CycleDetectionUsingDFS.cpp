@@ -3,22 +3,23 @@ using namespace std;
 
 class Graph
 {
-    class Node;    
-    int nNodes;
+    private:
+        class Node;    
+        int nNodes;
+        void DFS(int node, vector<bool> &Visited, bool &isCycle, int &prevNode);
+        vector<Node> Nodes;
 
     public:
-    vector<Node> Nodes;
-    Graph(int N);
-    void addEdge(int src, int dest);
-    void DFS(int node, vector<bool> &Visited, bool &isCycle, int &prevNode);
-    bool isCyclePresent();
+        Graph(int N);
+        void addEdge(int src, int dest);    
+        bool isCyclePresent();
 };
 
 class Graph::Node
 {    
     public:    
-    vector<int> adj;
-    Node(){}
+        vector<int> adj;
+        Node(){}
 };
 
 Graph::Graph(int N)

@@ -4,25 +4,25 @@ using namespace std;
 class Graph
 {
     private:
-    class Node;    
-    int nNodes;
-    stack<int> SortAsPerFinishingTimes();
-    void fillSortedStack(int node, vector<bool> &Visited, stack<int> &SortedStack);
-    void DFS(int node, vector<bool> &Visited, vector<int> &Component);
-    vector<vector<int>> getStronglyConnectedComponents(Graph G);
+        class Node;    
+        int nNodes;
+        stack<int> SortAsPerFinishingTimes();
+        void fillSortedStack(int node, vector<bool> &Visited, stack<int> &SortedStack);
+        void DFS(int node, vector<bool> &Visited, vector<int> &Component);
+        vector<vector<int>> getStronglyConnectedComponents(Graph G);
 
     public:
-    vector<Node> Nodes;
-    Graph(int N);
-    void addEdge(int src, int dest);
-    void printStronglyConnectedComponents(Graph G);
+        vector<Node> Nodes;
+        Graph(int N);
+        void addEdge(int src, int dest);
+        void printStronglyConnectedComponents(Graph G);
 };
 
 class Graph::Node
 {    
     public:    
-    vector<int> adj;
-    Node(){}
+        vector<int> adj;
+        Node(){}
 };
 
 Graph::Graph(int N)
@@ -150,4 +150,37 @@ int main()
 
     Complexity:
         O(V+E)
+
+    Sample Test Cases:
+    1. Input:
+        5 5
+        0 2
+        0 3
+        1 0
+        2 1
+        3 4
+      Output:
+        0 1 2
+        3 4
+    2. Input:
+        8 14
+        0 1
+        1 4
+        1 5
+        1 2
+        2 6
+        2 3
+        3 2
+        3 7
+        4 5
+        4 0
+        5 6
+        6 5
+        6 7
+        7 7        
+      Output:
+        0 4 1
+        2 3
+        5 6
+        7
 **/
