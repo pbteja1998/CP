@@ -1,11 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/**
-Assumptions:
-- Graph is Directed and Acyclic
-**/
-
 class Graph
 {
     class Node;    
@@ -101,6 +96,9 @@ int main()
 }
 
 /**
+    Assumptions:
+        Graph is Directed and Acyclic
+        
     Algo:
         During DFS, the node with higher finishing time is more to the left and vice-versa
         Finishing time of a node N is time taken to finish visiting all the children of N;

@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/**
-Assumptions:
-- Graph is Undirected
-- There are no Parallel Edges
-**/
-
 class Graph
 {
     class Node;    
@@ -99,10 +93,13 @@ int main()
 }
 
 /**
+    Assumptions:
+        Graph is Undirected and has No Parallel Edges        
+
     Algo:
-    For every visited vertex ‘v’, 
-        if there is an adjacent ‘u’ such that u is already visited and u is not parent of v in DFS Tree generated till then, 
-        then there is a cycle in graph
+        For every visited vertex ‘v’, 
+            if there is an adjacent ‘u’ such that u is already visited and u is not parent of v in DFS Tree generated till then, 
+            then there is a cycle in graph
 
     Complexity:
         O(V+E)
