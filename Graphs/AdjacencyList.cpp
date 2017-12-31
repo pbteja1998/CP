@@ -15,6 +15,7 @@ class Graph
 class Graph::Node
 {    
     public:
+    //add any other related parameters that are specific to a node
     vector<int> adj;
     Node(){}
 };

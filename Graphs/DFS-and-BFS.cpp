@@ -50,23 +50,6 @@ void Graph::DFS(int node, vector<bool> &Visited)
     }
 }
 
-int Graph::nConnectedComponents()
-{
-    vector<bool> Visited(nNodes, 0);
-
-    int ans = 0;
-
-    for(int j = 0; j < nNodes; j++) {
-        if(!Visited[j]){
-            // DFS(j, Visited);
-            BFS(j, Visited);
-            ans++;
-        }                
-    }
-
-    return ans;
-}
-
 void Graph::BFS(int node, vector<bool> &Visited)
 {
     //visit(node);
@@ -89,6 +72,23 @@ void Graph::BFS(int node, vector<bool> &Visited)
             }                
         }   
     }
+}
+
+int Graph::nConnectedComponents()
+{
+    vector<bool> Visited(nNodes, 0);
+
+    int ans = 0;
+
+    for(int j = 0; j < nNodes; j++) {
+        if(!Visited[j]){
+            // DFS(j, Visited);
+            BFS(j, Visited);
+            ans++;
+        }                
+    }
+
+    return ans;
 }
 
 int main()
