@@ -10,7 +10,8 @@ class Graph
 
     public:
         Graph(int N);
-        void addEdge(int src, int dest);    
+        void addEdge(int src, int dest);
+        void printAdjacencyList(); 
 };
 
 class Graph::Node
@@ -36,7 +37,32 @@ void Graph::addEdge(int src, int dest)
     Nodes[src].adj.push_back(dest);
 }
 
+void Graph::printAdjacencyList()
+{
+    for(int i = 0; i < nNodes; i++) {
+        cout << i << " : ";
+        for(int j = 0; j < Nodes[i].adj.size(); j++)
+            cout << Nodes[i].adj[j] << " ";        
+        cout << endl;
+    }
+}
+
 int main()
 {
+    int nNodes, nEdges;
+    cin >> nNodes >> nEdges;
+
+    Graph G(nNodes);
+
+    int u, v;        
+
+    while(nEdges--) {
+        cin >> u >> v;
+        G.addEdge(u, v);
+        G.addEdge(v, u);
+    }        
+        
+    G.printAdjacencyList();
+
     return 0;
 }

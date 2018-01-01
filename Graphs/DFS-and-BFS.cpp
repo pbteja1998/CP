@@ -13,7 +13,8 @@ class Graph
     public:    
         Graph(int N);
         void addEdge(int src, int dest);
-        int nConnectedComponents();    
+        int nConnectedComponents();
+        void printAdjacencyList();
 };
 
 class Graph::Node
@@ -90,6 +91,16 @@ int Graph::nConnectedComponents()
     }
 
     return ans;
+}
+
+void Graph::printAdjacencyList()
+{
+    for(int i = 0; i < nNodes; i++) {
+        cout << i << " : ";
+        for(int j = 0; j < Nodes[i].adj.size(); j++)
+            cout << Nodes[i].adj[j] << " ";        
+        cout << endl;
+    }
 }
 
 int main()

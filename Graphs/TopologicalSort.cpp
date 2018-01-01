@@ -14,6 +14,7 @@ class Graph
         Graph(int N);
         void addEdge(int src, int dest);    
         void printTopologicallySortedStack();
+        void printAdjacencyList();
 };
 
 class Graph::Node
@@ -74,6 +75,16 @@ void Graph::printTopologicallySortedStack()
     while(!SortedStack.empty()) {
         cout << SortedStack.top() << " ";
         SortedStack.pop();
+    }
+}
+
+void Graph::printAdjacencyList()
+{
+    for(int i = 0; i < nNodes; i++) {
+        cout << i << " : ";
+        for(int j = 0; j < Nodes[i].adj.size(); j++)
+            cout << Nodes[i].adj[j] << " ";        
+        cout << endl;
     }
 }
 

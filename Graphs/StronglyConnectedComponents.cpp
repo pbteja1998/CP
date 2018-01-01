@@ -16,6 +16,7 @@ class Graph
         Graph(int N);
         void addEdge(int src, int dest);
         void printStronglyConnectedComponents(Graph G);
+        void printAdjacencyList();
 };
 
 class Graph::Node
@@ -113,6 +114,16 @@ void Graph::printStronglyConnectedComponents(Graph G)
     for(int i = 0; i < Components.size(); i++) {
         for(int j = 0; j < Components[i].size(); j++)
             cout << Components[i][j] << " ";
+        cout << endl;
+    }
+}
+
+void Graph::printAdjacencyList()
+{
+    for(int i = 0; i < nNodes; i++) {
+        cout << i << " : ";
+        for(int j = 0; j < Nodes[i].adj.size(); j++)
+            cout << Nodes[i].adj[j] << " ";        
         cout << endl;
     }
 }
