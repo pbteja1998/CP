@@ -2,18 +2,19 @@
 using namespace std;
 
 class Graph
-{    
-    int nNodes, nEdges;
-    class Edge;
-    vector<Edge> Edges;    
-    vector<int> distNodes;
-    void initDistNodes(int src);
-    int BelmannFord(int src);
+{   
+    private:
+        int nNodes, nEdges;
+        class Edge;
+        vector<Edge> Edges;    
+        vector<int> distNodes;
+        void initDistNodes(int src);
+        int BelmannFord(int src);
 
     public:
-    Graph(int V, int E);
-    void addEdge(int src, int dest, int weight); 
-    void printShortestDistances(int src); 
+        Graph(int V, int E);
+        void addEdge(int src, int dest, int weight); 
+        void printShortestDistances(int src); 
 };
 
 Graph::Graph(int V, int E)
@@ -25,14 +26,14 @@ Graph::Graph(int V, int E)
 class Graph::Edge
 {
     public:
-    int src, dest, weight;
+        int src, dest, weight;
 
-    Edge(int u, int v, int w)
-    {
-        src = u;
-        dest = v;
-        weight = w;
-    }
+        Edge(int u, int v, int w)
+        {
+            src = u;
+            dest = v;
+            weight = w;
+        }
 };
 
 void Graph::addEdge(int src, int dest, int weight)
