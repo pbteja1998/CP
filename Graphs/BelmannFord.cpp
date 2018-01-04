@@ -7,9 +7,7 @@ class Graph
         int nNodes, nEdges;
         class Edge;
         vector<Edge> Edges;    
-        vector<int> distNodes;
-        void initDistNodes(int src);
-        int BelmannFord(int src);
+        int BelmannFord(int src, vector<int> &distNodes);
 
     public:
         Graph(int V, int E);
@@ -42,19 +40,8 @@ void Graph::addEdge(int src, int dest, int weight)
     Edges.push_back(E);
 }
 
-void Graph::initDistNodes(int src)
+int Graph::BelmannFord(int src, vector<int> &distNodes)
 {
-    for(int i = 0; i < nNodes; i++) {
-        distNodes.push_back(INT_MAX);
-    }    
-
-    distNodes[src] = 0;
-}
-
-int Graph::BelmannFord(int src)
-{
-    initDistNodes(src);
-
     for(int i = 1; i < nNodes; i++) {
         for(int j = 0; j < nEdges; j++) {
             int src = Edges[j].src;
@@ -84,7 +71,10 @@ int Graph::BelmannFord(int src)
 
 void Graph::printShortestDistances(int src)
 {
-    if(BelmannFord(src) == 0){
+    vector<int> distNodes(nNodes, INT_MAX);
+    distNodes[src] = 0;
+
+    if(BelmannFord(src, distNodes) == 0){
         for(int i = 0; i < nNodes; i++) {
             cout << "shortest distance from " << src << " to " << i << " is " << distNodes[i] << endl;
         }
@@ -113,6 +103,10 @@ int main()
 }
 
 /**
+    Assumptions:
+        There can be negative edges.
+        If there is a negative cycle it reports the negative cycle.
+
     Complexity:
         O(VE)
 
@@ -129,9 +123,9 @@ int main()
         4 3 -3
         0
     Output:
-    shortest distance from 0 to 0 is 0
-    shortest distance from 0 to 1 is -1
-    shortest distance from 0 to 2 is 2
-    shortest distance from 0 to 3 is -2
-    shortest distance from 0 to 4 is 1
+        shortest distance from 0 to 0 is 0
+        shortest distance from 0 to 1 is -1
+        shortest distance from 0 to 2 is 2
+        shortest distance from 0 to 3 is -2
+        shortest distance from 0 to 4 is 1
 **/
